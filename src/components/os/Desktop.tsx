@@ -104,11 +104,11 @@ const Desktop: React.FC<DesktopProps> = (props) => {
             });
         });
 
-        newShortcuts.forEach((shortcut) => {
-            if (shortcut.shortcutName === 'My Showcase') {
-                shortcut.onOpen();
-            }
-        });
+        //newShortcuts.forEach((shortcut) => {
+        //    if (shortcut.shortcutName === 'My Showcase') {
+        //        shortcut.onOpen();
+        //    }
+        //});
 
         setShortcuts(newShortcuts);
         // eslint-disable-next-line react-hooks/exhaustive-deps

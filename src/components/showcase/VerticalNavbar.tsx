@@ -1,93 +1,73 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from '../general';
-import forHire from '../../assets/pictures/forHireGif.gif';
-import { useLocation, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 export interface VerticalNavbarProps {}
 
-const VerticalNavbar: React.FC<VerticalNavbarProps> = (props) => {
+const VerticalNavbar: React.FC<VerticalNavbarProps> = () => {
     const location = useLocation();
+    const navigate = useNavigate();
+
     const [projectsExpanded, setProjectsExpanded] = useState(false);
     const [isHome, setIsHome] = useState(false);
 
-    const navigate = useNavigate();
     const goToContact = () => {
         navigate('/contact');
     };
 
     useEffect(() => {
-        if (location.pathname.includes('/projects')) {
-            setProjectsExpanded(true);
-        } else {
-            setProjectsExpanded(false);
-        }
-        if (location.pathname === '/') {
-            setIsHome(true);
-        } else {
-            setIsHome(false);
-        }
-        return () => {};
+        setProjectsExpanded(location.pathname.includes('/projects'));
+        setIsHome(location.pathname === '/');
     }, [location.pathname]);
 
-    return !isHome ? (
+    if (isHome) return null;
+
+    return (
         <div style={styles.navbar}>
             <div style={styles.header}>
                 <h1 style={styles.headerText}>Henry</h1>
                 <h1 style={styles.headerText}>Heffernan</h1>
                 <h3 style={styles.headerShowcase}>Showcase '22</h3>
             </div>
+
             <div style={styles.links}>
-                <Link containerStyle={styles.link} to="" text="HOME" />
-                <Link containerStyle={styles.link} to="about" text="ABOUT" />
+                <Link to="/" style={styles.link}>HOME</Link>
+                <Link to="/about" style={styles.link}>ABOUT</Link>
+                <Link to="/experience" style={styles.link}>EXPERIENCE</Link>
+
                 <Link
-                    containerStyle={styles.link}
-                    to="experience"
-                    text="EXPERIENCE"
-                />
-                <Link
-                    containerStyle={Object.assign(
-                        {},
-                        styles.link,
-                        projectsExpanded && styles.expandedLink
-                    )}
-                    to="projects"
-                    text="PROJECTS"
-                />
-                {
-                    // if current path contains projects
-                    projectsExpanded && (
-                        <div style={styles.insetLinks}>
-                            <Link
-                                containerStyle={styles.insetLink}
-                                to="projects/software"
-                                text="SOFTWARE"
-                            />
-                            <Link
-                                containerStyle={styles.insetLink}
-                                to="projects/music"
-                                text="MUSIC"
-                            />
-                            <Link
-                                containerStyle={styles.insetLink}
-                                to="projects/art"
-                                text="ART"
-                            />
-                        </div>
-                    )
-                }
-                <Link
-                    containerStyle={styles.link}
-                    to="contact"
-                    text="CONTACT"
-                />
+                    to="/projects"
+                    style={{
+                        ...styles.link,
+                        ...(projectsExpanded ? styles.expandedLink : {})
+                    }}
+                >
+                    PROJECTS
+                </Link>
+
+                {projectsExpanded && (
+                    <div style={styles.insetLinks}>
+                        <Link to="/projects/software" style={styles.insetLink}>
+                            SOFTWARE
+                        </Link>
+                        <Link to="/projects/music" style={styles.insetLink}>
+                            MUSIC
+                        </Link>
+                        <Link to="/projects/art" style={styles.insetLink}>
+                            ART
+                        </Link>
+                    </div>
+                )}
+
+                <Link to="/contact" style={styles.link}>CONTACT</Link>
             </div>
+
             <div style={styles.spacer} />
+
             <div style={styles.forHireContainer} onMouseDown={goToContact}>
+                {/* Optional image */}
                 {/* <img src={forHire} style={styles.image} alt="" /> */}
             </div>
         </div>
-    ) : (
-        <></>
     );
 };
 
@@ -112,12 +92,11 @@ const styles: StyleSheetCSS = {
     headerShowcase: {
         marginTop: 12,
     },
-    logo: {
-        width: '100%',
-        marginBottom: 8,
-    },
     link: {
         marginBottom: 32,
+        textDecoration: 'none',
+        color: 'inherit',
+        cursor: 'pointer',
     },
     expandedLink: {
         marginBottom: 16,
@@ -129,22 +108,23 @@ const styles: StyleSheetCSS = {
     },
     insetLink: {
         marginBottom: 8,
+        textDecoration: 'none',
+        color: 'inherit',
     },
     links: {
         flexDirection: 'column',
         flex: 1,
         justifyContent: 'center',
     },
-    image: {
-        width: '80%',
-    },
     spacer: {
         flex: 1,
     },
     forHireContainer: {
         cursor: 'pointer',
-
         width: '100%',
+    },
+    image: {
+        width: '80%',
     },
 };
 

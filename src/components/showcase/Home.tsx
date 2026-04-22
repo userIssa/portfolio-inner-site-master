@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link } from '../general';
+import { Link } from 'react-router-dom';
 
 import forhire from '../../assets/pictures/forHireGif.gif';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
-export interface HomeProps {}
+export interface HomeProps { }
 
 const Home: React.FC<HomeProps> = (props) => {
     const navigate = useNavigate();
@@ -20,22 +20,10 @@ const Home: React.FC<HomeProps> = (props) => {
                 <h2>Software Engineer</h2>
             </div>
             <div style={styles.buttons}>
-                <Link containerStyle={styles.link} to="about" text="ABOUT" />
-                <Link
-                    containerStyle={styles.link}
-                    to="experience"
-                    text="EXPERIENCE"
-                />
-                <Link
-                    containerStyle={styles.link}
-                    to="projects"
-                    text="PROJECTS"
-                />
-                <Link
-                    containerStyle={styles.link}
-                    to="contact"
-                    text="CONTACT"
-                />
+                <Link to="/about" style={styles.link}>ABOUT</Link>
+                <Link to="/experience" style={styles.link}>EXPERIENCE</Link>
+                <Link to="/projects" style={styles.link}>PROJECTS</Link>
+                <Link to="/contact" style={styles.link}>CONTACT</Link>
             </div>
             <div style={styles.forHireContainer} onMouseDown={goToContact}>
                 {/* <img src={forhire} alt="" /> */}

@@ -46,6 +46,7 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                     <li>
                         <p>
                             •Helped adapt technical explanations so meaning stays accurate across languages rather than being literal translations.
+                        </p>
                     </li>
                 </ul>
             </div>
