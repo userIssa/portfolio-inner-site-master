@@ -135,9 +135,9 @@ const About: React.FC<AboutProps> = (props) => {
                     <a
                         rel="noreferrer"
                         target="_blank"
-                        
+                        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
                     >
-                        
+                        hidden
                     </a>{' '}
                     Good luck and have fun!
                 </p>
