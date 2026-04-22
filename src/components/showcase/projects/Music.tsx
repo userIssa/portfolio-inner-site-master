@@ -1,21 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import houseProject from '../../../assets/pictures/projects/audio/houseProject.png';
 import dnbDrumsProject from '../../../assets/pictures/projects/audio/dnbDrumsProject.png';
 
-import { MusicPlayer } from '../../general';
-
-// Audio files (must NOT be above imports)
-const house = '/media/audio/house_master.mp3';
-const edge = '/media/audio/edge_unmastered.mp3';
-const dnb = '/media/audio/break.mp3';
-const dnbDrums = '/media/audio/dnb_drop_drums.mp3';
-
 export interface MusicProjectsProps {}
 
 const MusicProjects: React.FC<MusicProjectsProps> = () => {
-    const [currentSong, setCurrentSong] = useState<string>('');
-
     return (
         <div className="site-page-content">
             <h1>Music & Sound</h1>
@@ -25,42 +15,26 @@ const MusicProjects: React.FC<MusicProjectsProps> = () => {
 
             <div className="text-block">
                 <p>
-                    Music has been a passion of mine for my whole life. When I
-                    was 15 years old, I downloaded FL Studio and started to
-                    produce my own music.
+                    Music has been a core part of my creative journey. I started producing at a young age and
+                    have spent years experimenting with different genres and techniques.
                 </p>
 
                 <br />
 
                 <p>
-                    I don’t release most of my music publicly because I focus
-                    more on the creative process than publishing finished work.
-                </p>
-
-                <br />
-
-                <p>
-                    Below are some selected projects I’m proud of.
+                    While I don’t actively release music publicly, I enjoy the process of creating and refining
+                    ideas. Below are a few highlights from my work.
                 </p>
             </div>
 
             <br />
-            <h2>Exploring house</h2>
+
+            <h2>Exploring House</h2>
 
             <p>
-                In 2020 I experimented heavily with house music inspired by
-                artists like Malaa and Chris Lake.
+                During one phase, I focused heavily on house music — experimenting with groove, rhythm, and
+                melodic structure inspired by artists in the space.
             </p>
-
-            <br />
-
-            <MusicPlayer
-                src={house}
-                title="Timeless"
-                subtitle="Henry Heffernan - 2022"
-                currentSong={currentSong}
-                setCurrentSong={setCurrentSong}
-            />
 
             <br />
 
@@ -68,78 +42,55 @@ const MusicProjects: React.FC<MusicProjectsProps> = () => {
                 <img src={houseProject} alt="House project screenshot" />
                 <p>
                     <sub>
-                        <b>Figure 1:</b> Project file for “Timeless”
+                        <b>Figure 1:</b> Project file showing arrangement and layering
                     </sub>
                 </p>
             </div>
 
+            <p><i>Audio preview removed to improve performance.</i></p>
+
             <br />
 
-            <h2>Mid-Tempo</h2>
+            <h2>Mid-Tempo Exploration</h2>
 
             <p>
-                I later explored darker mid-tempo sounds with more aggressive
-                bass design.
+                I also explored darker mid-tempo styles, focusing on bass design and atmospheric tension.
             </p>
 
-            <br />
-
-            <MusicPlayer
-                src={edge}
-                title="Edge [W.I.P.]"
-                subtitle="Henry Heffernan - 2021"
-                currentSong={currentSong}
-                setCurrentSong={setCurrentSong}
-            />
+            <p><i>Audio preview removed to improve performance.</i></p>
 
             <br />
 
             <h2>Drum & Bass</h2>
 
             <p>
-                Drum & Bass has always been a core influence in my production
-                style.
+                Drum & Bass has always been a recurring influence in my production style. I enjoy working on
+                drum layering, rhythm complexity, and energetic compositions.
             </p>
 
             <br />
 
-            <MusicPlayer
-                src={dnb}
-                title="Break [Demo]"
-                subtitle="2019/2022"
-                currentSong={currentSong}
-                setCurrentSong={setCurrentSong}
-            />
-
-            <br />
-
-            <MusicPlayer
-                src={dnbDrums}
-                title="Break [Drums + Sub]"
-                subtitle="2019/2022"
-                currentSong={currentSong}
-                setCurrentSong={setCurrentSong}
-            />
-
-            <br />
-
             <div className="captioned-image">
-                <img src={dnbDrumsProject} alt="DnB drums breakdown" />
+                <img src={dnbDrumsProject} alt="Drum and bass project breakdown" />
                 <p>
                     <sub>
-                        <b>Figure 2:</b> Drum layering analysis
+                        <b>Figure 2:</b> Drum layering and structure breakdown
                     </sub>
                 </p>
             </div>
+
+            <p><i>Audio preview removed to improve performance.</i></p>
 
             <br />
 
             <h2>The Future</h2>
 
             <p>
-                I plan to release more music publicly as my style matures and
-                becomes more consistent.
+                I plan to continue creating music and refining my style. Eventually, I aim to release selected
+                works publicly once I’m fully satisfied with their quality and direction.
             </p>
+
+            <br />
         </div>
     );
 };
