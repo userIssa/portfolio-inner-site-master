@@ -24,8 +24,8 @@ const VerticalNavbar: React.FC<VerticalNavbarProps> = () => {
     return (
         <div style={styles.navbar}>
             <div style={styles.header}>
-                <h1 style={styles.headerText}>Henry</h1>
-                <h1 style={styles.headerText}>Heffernan</h1>
+                <h1 style={styles.headerText}>Emmanuel</h1>
+                <h1 style={styles.headerText}>Nwaeke</h1>
                 <h3 style={styles.headerShowcase}>Showcase '22</h3>
             </div>
 
